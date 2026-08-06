@@ -3,7 +3,7 @@ import pytest
 from cython_utils._test import Deadline
 
 
-@pytest.skip("CI has problems with this. Will investigate later... works fine on a windows PC.")
+@pytest.mark.skip("CI has problems with this. Will investigate later... works fine on a windows PC.")
 def test_deadline():
     # test that python's Deadline CAPI works correctly...
     test = set()
