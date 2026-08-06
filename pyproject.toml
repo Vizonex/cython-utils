@@ -1,0 +1,51 @@
+[project]
+name = "cython_utils"
+dynamic = ["version"]
+description = "A Helpful Cython Utilities Package for all kinds of useful shortcuts."
+readme = "README.md"
+
+
+authors = [
+    { name = "Vizonex", email = "VizonexBusiness@gmail.com" }
+]
+
+requires-python = ">=3.10"
+dependencies = [
+    "cython>=3.2.9",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+
+[project.optional-dependencies]
+tests = ["pytest"]
+
+[build-system]
+requires = ["setuptools", "cython", "wheel"]
+
+
+[tool.setuptools.dynamic]
+version = {attr = "cython_utils.__version__"}
+
+
+# Building wheels is extemely important in any project you make that requires compiling.
+# The reason we would do so is that extensions like Visual Studio C++ are known diskspace
+# eaters so some people may be lazy and may want us to compile the library for them.
+# this is why packages distribute things in wheels.
+[tool.cibuildwheel]
+build-frontend = "build"
+
+
+# Uncomment if you need to use the ruff linter on the python side of things...
+# [tool.ruff.lint]
+# select = [
+#     "E",
+#     "W",
+#     "I",
+#     "F"
+# ]
+# ignore = [
+# ]
+
